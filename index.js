@@ -68,8 +68,6 @@ const sessionOption = {
 //     res.send(`i am totally doing good`);
 // });
 
-
-
 app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
