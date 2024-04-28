@@ -16,7 +16,7 @@ const userrouter = require("./routers/user.js");
 const User = require("./models/user.js");
 const LocalStrategy = require("passport-local");
 
-const datab = process.env.ATLASDB_URL;
+const mongoUrl = process.env.ATLASDB_URL;
 
 // apps set and use parts
 app.set("views", path.join(__dirname,"views"));
@@ -36,11 +36,11 @@ main()
      .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(datab);
+  await mongoose.connect(mongoUrl);
 }
 
 const store  = MongoStore.create({
-  mongoUrl: datab,
+  mongoUrl: mongoUrl,
   crypto: {
     secret: process.env.SECRET_CODE
   },
