@@ -28,6 +28,7 @@ app.engine( "ejs",ejs);
 
 
 
+
 // momgodb database connection part
 main()
     .then(() => {console.log("connect connected");
@@ -43,7 +44,7 @@ const store  = MongoStore.create({
   crypto: {
     secret: process.env.SECRET_CODE
   },
-  touchAfter: 24 * 3600,
+  touchAfter: 7 * 24 * 60 * 60,
 });
 
 store.on("error", () => {
@@ -51,7 +52,7 @@ store.on("error", () => {
 });
 
 const sessionOption = {
-  store,
+  store: store,
   secret: process.env.SECRET_CODE,
   resave:  false,
   saveUninitialized: true,
