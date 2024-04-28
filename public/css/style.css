@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-color: lightsteelblue !important; */
+    font-family: "Montserrat", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+.container {
+   flex: 1;
+}
+/* navbar parts */
+.navbar-nav i:hover{
+    color: tomato;
+}
+/* index.js */
+
+div .ac{
+    text-decoration: none;
+    color: black;
+    
+    /* font-size: small; */
+}
+.listing-card{
+    border: none !important;
+    margin: 0 !important;
+
+}
+.card-img-top{
+    width: 100% !important;
+    object-fit: cover;
+    height: fit-content;
+}
+.card-body{
+    padding: 0 !important;
+}
+.container-fluid{
+    font-size: 1.5rem;
+}
+.container-fluid .navbar-brand{
+    margin-left: 1rem;
+    font-size: 2.2rem;
+}
+/* ---------------- LISTINGS CATEGORY PARTS */
+/* .filters{
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter{
+    text-align: center;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    opacity: .8;
+    float: left;
+}
+.filter:hover{
+opacity: 1;
+cursor: pointer;
+}
+.filter p{
+font-weight: 500;
+font-size: .9rem;
+}
+
+.toggles{
+border: 2px solid black;
+border-radius: 3rem;
+margin: 1.3rem;
+padding: .7rem;
+float: right;
+} */
+
+/* new parts */
+
+div .form-control{
+    background-color: lavender;
+}
+.btn-success{
+    margin: 2rem 0rem;
+}
+/* details parts */
+.details{
+    margin: 0 auto !important;
+}
+.details .card-img-top{
+    width: 10rem;
+    height: 20rem;
+}
+.details form{
+    margin: 2rem;
+}
+/* footer part */
+.footer{
+    background-color: rgb(201, 229, 230) ;
+}
+.footer-info-links,.footer-socials{
+    width: 100%;
+}
+
+.footer-info,.footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.footer-socials i{
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+}
+.footer-info-links{
+    display: block;
+}

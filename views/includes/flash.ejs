@@ -1,0 +1,17 @@
+<% if (success && success.length) { %> <!--we written length becaause it stores data in array type-->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<% } %>
+
+
+<% if (errors && errors.length) { %> <!--we written length becaause it stores data in array type-->
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= errors %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<% } %>
+

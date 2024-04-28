@@ -1,0 +1,65 @@
+<% layout("layouts/boilerplate") %>
+<body>
+    <div>
+        <h2><b>Now  Update</b></h2>
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" class="needs-validation row" novalidate enctype="multipart/form-data">
+        <div class="col-12">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" type="text"  aria-label="default input example" name="listing[title]" id="title"  value="<%= listing.title %>" required>
+            <div class="invalid-feedback">Please enter title</div>
+
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control"  aria-label="default input example" name="listing[description]" id="description"   style="height: 100px;" value= "<%= listing.description %>" required><%= listing.description %></textarea>
+            <div class="invalid-feedback">Add description</div>
+
+        </div>
+
+        <div class="col-12">
+            <label for="filename" class="form-label">Filename</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[image][filename]" id="image" me"  value="<%= listing.image.filename %>" required>
+            <div class="invalid-feedback">Give some filename</div>
+        </div>
+
+        <div class="col-12">
+            <p>displaying image</p>
+            <img src="<%= originalImage %>" alt="image" width="200px">
+        </div>
+
+        <div class="col-8">
+            <label for="url" class="form-label">URL/LINK</label>
+            <input class="form-control" type="file" 
+            aria-label="default input example" 
+            name="listing[image][url]" id="image" nk >
+        </div>
+        
+        <div class="col-4">
+            <label for="price" class="form-label">Price</label>
+            <input class="form-control"  aria-label="default input example" 
+            type="number" name="listing[price]" id="price" value="<%= listing.price %>" required>
+            <div class="invalid-feedback">priceIt</div>
+        </div>
+        <div class="col-6">
+            <label for="location" class="form-label">Location</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[location]" id="location" on" value="<%= listing.location %>" required>
+            <div class="invalid-feedback">Location</div>
+        </div>
+        <div class="col-6">
+            <label for="Country" class="form-label">Country</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[Country]" id="Country" y" value="<%= listing.Country %>" required>
+            <div class="invalid-feedback">Country</div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center  mx-auto">
+            <button class="btn btn-success">Update</button>
+        </div>
+    </form>
+
+</div>
+</body>
+
+
+<!-- if i am updating it without image then it is bringing error -->
+
+        

@@ -1,0 +1,61 @@
+<% layout("layouts/boilerplate") %>
+<body>
+    <div>
+        <h2><b>Create a new Place</b></h2>
+        <form action="/listings" method="POST" class="needs-validation row align-items-center" novalidate enctype="multipart/form-data">
+        <div class="col-12">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" type="text"  aria-label="default input example" name="listing[title]" id="title" required >
+            <div class="invalid-feedback">Please enter title</div>
+        </div>
+        <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" type="text"  aria-label="default input example" 
+            name="listing[description]" id="description" style="height: 100px"  required></textarea>
+            <div class="invalid-feedback">Add description</div>
+        </div>
+        <div class="col-6">
+
+            <label for="filename" class="form-label">Filename</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[image][filename]" id="image" me required>
+            
+            <div class="invalid-feedback">Give some filename</div>
+        </div>
+
+        <div class="col-6">
+            <label for="url" class="form-label">URL/LINK</label>
+            <input class="form-control" type="file" 
+            aria-label="default input example" 
+            name="listing[image][url]" id="image" required nk >
+            <div class="invalid-feedback">upload image</div>
+        </div>
+
+
+        <div class="col-2">
+            <label for="price" class="form-label">Price</label>
+            <input class="form-control"  aria-label="default input example" name="listing[price]" id="price" required>
+            <div class="invalid-feedback">priceIt</div>
+        </div>
+            <div class="col-5">
+            <label for="location" class="form-label">Location</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[location]" id="location" on required>
+            <div class="invalid-feedback">Location</div>
+        </div>
+        <div class="col-5">
+            <label for="Country" class="form-label">Country</label>
+            <input class="form-control" type="text"  aria-label="default input example" 
+            name="listing[Country]" id="Country" y required>
+            <div class="invalid-feedback">Country</div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center  mx-auto">
+            <button class="btn btn-success">Submit</button>
+        </div>
+        
+
+    </form>
+</div>
+    
+    
+</body>
