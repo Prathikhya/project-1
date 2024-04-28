@@ -64,9 +64,9 @@ const sessionOption = {
 }
 
 // API ROUTERS PARTS
-app.get("/",(req,res) => {
-    res.send(`i am totally doing good`);
-});
+// app.get("/",(req,res) => {
+//     res.send(`i am totally doing good`);
+// });
 
 
 
