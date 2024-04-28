@@ -4,7 +4,7 @@ const Listing = require("../models/Listing.js");
 const WrapAsync= require("../utils/WrapAsync.js");
 const Reviews = require("../models/reviews.js");
 const {validatereview,isLoggedin, isreviewAuthor} = require("../middleware.js");
-const ReviewControl = require("../controller/ControlReview.js");
+const ReviewControl = require("../Controller/ControlReview.js");
 
 
 // REVIEWS ROUTER
