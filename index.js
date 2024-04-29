@@ -63,9 +63,9 @@ const sessionOption = {
 }
 
 // API ROUTERS PARTS
-app.get("/",(req,res) => {
-    res.render('/listings', ListingRouter);
-});
+// app.get("/",(req,res) => {
+//     res.render('/listings', ListingRouter);
+// });
 
 app.use(session(sessionOption));
 app.use(flash());
