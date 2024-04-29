@@ -6,16 +6,15 @@ const path = require("path");
 const ExpressError = require("./utils/Expresserror.js");
 const methodoverride = require("method-override");
 const ejs = require("ejs-mate");
-const listings = require("./routers/listings.js");
-const reviews = require("./routers/reviews.js");
+const ListingRouter = require("./routers/listings.js");
+const ReviewsRouter = require("./routers/reviews.js");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require("passport");
-const userrouter = require("./routers/user.js");
+const UserRouter = require("./routers/user.js");
 const User = require("./models/user.js");
 const LocalStrategy = require("passport-local");
-
 const mongoUrl = process.env.ATLASDB_URL;
 
 // apps set and use parts
@@ -64,9 +63,9 @@ const sessionOption = {
 }
 
 // API ROUTERS PARTS
-// app.get("/",(req,res) => {
-//     res.send(`i am totally doing good`);
-// });
+app.get("/",(req,res) => {
+    res.render('/listings', ListingRouter);
+});
 
 app.use(session(sessionOption));
 app.use(flash());
@@ -85,9 +84,9 @@ app.use((req, res, next) => {
 })
 
 // ROUTERS LISTINGS 
-app.use('/listings', listings);
-app.use('/listings/:id/reviews', reviews);
-app.use("/", userrouter);
+app.use('/listings', ListingRouter);
+app.use('/listings/:id/reviews', ReviewsRouter);
+app.use("/", UserRouter);
 
 // error handling
 app.all("*",(req,res,next) => {

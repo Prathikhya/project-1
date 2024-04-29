@@ -35,4 +35,5 @@ router.route( "/:id" )
 
 // UPDATE THE EXISTING LISTS
 router.get("/:id/edit",isLoggedin, isOwner, WrapAsync(ListingControl.EditListing));
+
 module.exports = router;
