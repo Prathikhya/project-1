@@ -6,12 +6,12 @@ const path = require("path");
 const ExpressError = require("./utils/Expresserror.js");
 const methodoverride = require("method-override");
 const ejs = require("ejs-mate");
-const ListingRouter = require("./routers/listings.js");
-const ReviewsRouter = require("./routers/reviews.js");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require("passport");
+const ListingRouter = require("./routers/listings.js");
+const ReviewsRouter = require("./routers/reviews.js");
 const UserRouter = require("./routers/user.js");
 const User = require("./models/user.js");
 const LocalStrategy = require("passport-local");
@@ -24,8 +24,6 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(methodoverride("_method"));
 app.engine( "ejs",ejs);
-
-
 
 
 // momgodb database connection part
@@ -76,7 +74,6 @@ passport.serializeUser(User.serializeUser()) ;
 passport.deserializeUser(User.deserializeUser()) ;
 
 app.use((req, res, next) => {
-
   res.locals.success = req.flash("success");
   res.locals.errors = req.flash("errors");
   res.locals.currentUser = req.user;
