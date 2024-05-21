@@ -1,47 +1,82 @@
 <style>
   .search-box{
-    border: 1px solid black;
+    border: 3px solid var(--color5);
     border-radius: 10rem;
-    padding: 0 2rem;
+    padding: .3rem 1rem;
+    color: var(--color2);
+    margin-left:1rem ;
+    background-color: var(--color2);
+
   }
   .btn{
-    border-radius: 10rem ;
+    border-radius: 10rem;
+    background-color: var(--color5);
+    color: var(--color3);
   }
+  .searchbtn:hover{
+    background-color: var(--color3);
+    color: var(--color5);
+  }
+  .fa-circle-plus{
+    font-size: 2rem;
+  }
+  
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
+
       <!-- left side -->
-      <a class="navbar-brand" href="http://localhost:8080/listings">PartIT</a>
+      <a class="navbar-brand " href="http://localhost:8080/listings">PartIT</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Explore</a>
+
+      <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Stays</a>
+          <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Experience</a>
       </div>
 
+      
+
       <!-- middle side -->
-      <div class="navbar-nav ms-auto">
+      <div class="navbar-nav">
         <form class="d-flex" role="search">
-          <input class="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success searchbtn" type="submit">Search</button>
+          <button class="btn searchbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-magnifying-glass"></i></button>
+          
+          <div class="collapse" id="collapseExample">
+            <input type="text" class="form-control search-box" placeholder="search">
+          </div>
         </form>
       </div>
 
-          <!-- right side -->
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="http://localhost:8080/listings/new"><i class="fa-solid fa-plus"></i></a>
-            <% if(!currentUser) { %>
-          <a class="nav-link" href="/signin"><b>SignIn</b></a>
-          <a class="nav-link" href="/login"><b> Login </b></a>
-          <% } %>
-          <% if(currentUser) { %>
-          <a class="nav-link" href="/logout"> <b>Logout</b> </a>
-          <% } %>
+
+
+      <!-- right side -->
+      <div class="navbar-nav ms-auto mx-4">
+        <a class="nav-link" href="http://localhost:8080/listings/new">
+            <i class="fa-solid fa-circle-plus"></i>
+          </a>
+        <% if(!currentUser) { %>
+              <a class="nav-link" href="/signin">
+              Signin
+
+              </a>
+              <a class="nav-link" href="/login"> Login </a>
+            
+        </div>
+      
+      <% } %>
+
+
+      <% if(currentUser) { %>
+        <a class="nav-link" href="/logout" > Logout</a>
+      <% } %>
           </div>
       </div>
-      </div>
+    </div>
     </div>
   </nav>

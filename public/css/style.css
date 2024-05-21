@@ -1,10 +1,18 @@
+:root{
+    --color1: #fdf9e4;
+    --color2:#d1f0ea;
+    --color3:#ffffff;
+    --color4:#4b92a7;
+    --color5:#000d31;
+
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    /* background-color: lightsteelblue !important; */
+    /* background:linear-gradient(var(--color2),var(--color4),var(--color5)) !important; */
     font-family: "Montserrat", sans-serif !important;
     display: flex;
     flex-direction: column;
@@ -16,9 +24,19 @@ body{
    flex: 1;
 }
 /* navbar parts */
-.navbar-nav i:hover{
-    color: tomato;
+.navbar{ 
+    background-color: var(--color2) ;
 }
+.nav-link{
+    color: var(--color5) !important;
+    font-weight: 600 !important;
+}
+.container-fluid .navbar-brand{
+    font-size: 2rem;
+    color: var(--color5) !important;
+    font-weight: 600;
+}
+
 /* index.js */
 
 div .ac{
@@ -29,24 +47,17 @@ div .ac{
 }
 .listing-card{
     border: none !important;
-    margin: 0 !important;
-
 }
 .card-img-top{
     width: 100% !important;
     object-fit: cover;
     height: fit-content;
 }
-.card-body{
-    padding: 0 !important;
-}
+
 .container-fluid{
     font-size: 1.5rem;
 }
-.container-fluid .navbar-brand{
-    margin-left: 1rem;
-    font-size: 2.2rem;
-}
+
 /* ---------------- LISTINGS CATEGORY PARTS */
 /* .filters{
     display: flex;
@@ -97,12 +108,12 @@ div .form-control{
 }
 /* footer part */
 .footer{
-    background-color: rgb(201, 229, 230) ;
+    background:linear-gradient(var(--color4),var(--color2)) !important;
 }
+
 .footer-info-links,.footer-socials{
     width: 100%;
 }
-
 .footer-info,.footer-socials {
     display: flex;
     flex-wrap: wrap;
@@ -114,7 +125,11 @@ div .form-control{
     font-size: 1.5rem;
     padding: 1rem;
     width: 100%;
+    color: var(--color5);
 }
 .footer-info-links{
     display: block;
+}
+.foot-links{
+    color: var(--color5);
 }

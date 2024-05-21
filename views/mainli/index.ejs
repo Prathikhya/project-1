@@ -3,6 +3,10 @@
     .filters{
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 5rem;
+    margin: 1rem 0rem;
+    padding-left: 1.5rem;
 }
 .filter{
     text-align: center;
@@ -10,6 +14,7 @@
     margin-top: 1.5rem;
     opacity: .8;
     float: left;
+    
 }
 .filter:hover{
 opacity: 1;
@@ -30,7 +35,7 @@ float: right;
 
 </style>
 
-    <div>
+<div class="container">
                 <!-- filetrs parts -->
                 <div class="filters">
                     <div class="filter">
@@ -81,13 +86,14 @@ float: right;
                          <label class="form-check-label" for="flexSwitchCheckReverse">With Taxes</label>
                      </div>
                     </div>
-                </div>
-                </div>
+            </div>
+                
+
         <!-- listings display  part -->
 
         <div class=" row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 "> 
                     <% for(let list of listing) { %>
-                            <div class="card col listing-card">
+                            <div class="card col mx-2 p-2 text-center listing-card">
                                 <a href="http://localhost:8080/listings/<%= list._id %>" class="ac">
                                 <img src="<%= list.image.url %>" class="card-img-top rounded" alt="listing-img"  style="height: 20rem;">
                                 <div class="card-body">
@@ -99,6 +105,6 @@ float: right;
                             </div>
                     <% } %>
         </div>
-    </div>     
+</div>     
     
 
