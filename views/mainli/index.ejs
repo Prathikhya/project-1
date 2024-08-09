@@ -1,28 +1,54 @@
 <% layout("/layouts/boilerplate")%>
 <style>
-    .filters{
+
+/* UPPER FILTER PARTS */
+ .filters{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border: 1px solid transparent;
     border-radius: 5rem;
     margin: 1rem 0rem;
     padding-left: 1.5rem;
+    background-color: var(--color1);
+    color: var(--color3);
 }
+
 .filter{
     text-align: center;
     margin-right: 1.5rem;
     margin-top: 1.5rem;
     opacity: .8;
-    float: left;
-    
+    /* float: left; */
 }
+
 .filter:hover{
 opacity: 1;
 cursor: pointer;
 }
+
 .filter p{
 font-weight: 500;
 font-size: .9rem;
+}
+
+/* LISTINGS CARDS PARTS */
+/* .row{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+.card{
+    margin: 1.1rem;
+    
+}
+.card-img-top{
+    width: 100% !important;
+    object-fit: cover;
+    height: fit-content;
+}
+.card-head{
+    text-decoration: none;
+    color: black;
 }
 
 .toggles{
@@ -35,76 +61,85 @@ float: right;
 
 </style>
 
-<div class="container">
+<div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
                 <!-- filetrs parts -->
-                <div class="filters">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-fire"></i></div>
-                        <p>Trends</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-binoculars"></i></div>
-                        <p>Amazing Views</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-umbrella-beach"></i></div>
-                        <p>Beach</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-mountain-city"></i></div>
-                        <p>Mountain house</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-house-chimney-window"></i></div>
-                        <p>tree House</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-brands fa-fort-awesome"></i></div>
-                        <p>castel house</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-city"></i></div>
-                        <p>Top cities</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-city"></i></div>
-                        <p>Top cities</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-city"></i></div>
-                        <p>Top cities</p>
-                    </div>
-                    <div class="filter">
-                        <div><i class="fa-solid fa-city"></i></div>
-                        <p>Top cities</p>
-                    </div>
-        
-                <!-- toggle button -->
-                    <div class="toggles">
-                     <div class="form-check form-switch form-check-reverse">
-                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
-                         <label class="form-check-label" for="flexSwitchCheckReverse">With Taxes</label>
-                     </div>
-                    </div>
+            <div class="filters">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trends</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-binoculars"></i></div>
+                    <p>Amazing Views</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <p>Beach</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Mountain house</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-house-chimney-window"></i></div>
+                    <p>tree House</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-brands fa-fort-awesome"></i></div>
+                    <p>castel house</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Top cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Top cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Top cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Top cities</p>
+                </div>
+    
+            <!-- toggle button -->
+                <div class="toggles">
+                 <div class="form-check form-switch form-check-reverse">
+                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+                     <label class="form-check-label" for="flexSwitchCheckReverse">With Taxes</label>
+                 </div>
+                </div>
             </div>
-                
-
-        <!-- listings display  part -->
-
-        <div class=" row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 "> 
-                    <% for(let list of listing) { %>
-                            <div class="card col mx-2 p-2 text-center listing-card">
-                                <a href="http://localhost:8080/listings/<%= list._id %>" class="ac">
-                                <img src="<%= list.image.url %>" class="card-img-top rounded" alt="listing-img"  style="height: 20rem;">
-                                <div class="card-body">
-                                    <h6><b><%= list.title %></b></h6>
-                                    <p class="card-text">₹<%=list.price%>/night</p>
-                                </div>
-                                <br>
-                                </a>
-                            </div>
-                    <% } %>
+            </div>
         </div>
+    </div>
+        
+
+    <div>
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 ">
+                <!-- listings display  part -->
+                <% for(let list of listing) { %>
+                <div class="card border-0 p-1" style="width:18rem; ">
+                    <a href="http://localhost:8080/listings/<%= list._id %>" class="card-head">
+                    <img src="<%= list.image.url %>" class="card-img-top rounded" alt="listing-img"  style="height: 12rem;">
+                    <div class="card-body">
+                        <span class="card-text"><b><%= list.title %></b></span><br>
+                        <span class="card-text"><%= list.location%></span><br>
+                        <span class="card-text"><b>₹<%=list.price%></b> per guest</span>
+                    </div>
+                    </a>
+                </div>
+                <% } %>
+            </div>
+         
+        </div>                
 </div>     
     
 

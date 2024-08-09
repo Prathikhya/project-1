@@ -1,10 +1,23 @@
 <style>
+
+.navbar{ 
+    background-color: var(--color1) ;
+}
+.nav-link{
+    color: var(--color2) !important;
+    font-weight: 600 !important;
+}
+.container-fluid .navbar-brand{
+    font-size: 2rem;
+    color: var(--color5) !important;
+    font-weight: 600;
+}
   .search-box{
     border: 3px solid var(--color5);
     border-radius: 10rem;
     padding: .3rem 1rem;
     color: var(--color2);
-    margin-left:1rem ;
+    margin-left: 1rem ;
     background-color: var(--color2);
 
   }
@@ -12,38 +25,47 @@
     border-radius: 10rem;
     background-color: var(--color5);
     color: var(--color3);
+    margin-left: .5rem;
+    font-size: .7rem;
   }
   .searchbtn:hover{
     background-color: var(--color3);
     color: var(--color5);
   }
   .fa-circle-plus{
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .right .nav-link{
+    border: 1px solid var(--color5);
+    margin-left: 1rem;
+    border-radius: 15rem;
+    font-size: .7rem;
+    background-color: var(--color5);
+    color: var(--color3) !important;
   }
   
 </style>
 
 <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container-fluid">
+  <div class="container-fluid">
 
       <!-- left side -->
       <a class="navbar-brand " href="http://localhost:8080/listings">PartIT</a>
 
+      <!-- COLLAPSE BUTTON -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <div class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
           <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Stays</a>
           <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Experience</a>
-      </div>
+        </div>
 
-      
-
-      <!-- middle side -->
-      <div class="navbar-nav">
+        <!-- middle side -->
+        <div class="navbar-nav">
         <form class="d-flex" role="search">
           <button class="btn searchbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-magnifying-glass"></i></button>
           
@@ -51,32 +73,19 @@
             <input type="text" class="form-control search-box" placeholder="search">
           </div>
         </form>
-      </div>
-
-
-
-      <!-- right side -->
-      <div class="navbar-nav ms-auto mx-4">
-        <a class="nav-link" href="http://localhost:8080/listings/new">
-            <i class="fa-solid fa-circle-plus"></i>
-          </a>
-        <% if(!currentUser) { %>
-              <a class="nav-link" href="/signin">
-              Signin
-
-              </a>
-              <a class="nav-link" href="/login"> Login </a>
-            
         </div>
-      
-      <% } %>
 
-
-      <% if(currentUser) { %>
-        <a class="nav-link" href="/logout" > Logout</a>
-      <% } %>
-          </div>
+        <!-- right side -->
+        <div class="navbar-nav ms-auto  right">
+          <% if(!currentUser) { %>
+            <a class="nav-link" href="/signin">Signin</a>
+            <a class="nav-link" href="/login"> Login </a>
+          <% } %>
+          <% if(currentUser) { %>
+            <a class="nav-link" href="http://localhost:8080/listings/new">New</a>
+            <a class="nav-link" href="/logout" > Logout</a>
+          <% } %>
+        </div>
       </div>
-    </div>
-    </div>
-  </nav>
+  </div>
+</nav>

@@ -1,9 +1,9 @@
 :root{
-    --color1: #fdf9e4;
-    --color2:#d1f0ea;
-    --color3:#ffffff;
-    --color4:#4b92a7;
-    --color5:#000d31;
+    --color1: #fffffaff;
+    --color2:#0d5c63ff;
+    --color3:#44a1a0ff;
+    --color4:#247b7bff;
+    --color5:#022B3A;
 
 }
 *{
@@ -17,46 +17,26 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+   background-color: var(--color3) !important;
     
 }
+/* BOILERPLATE PART */
+.container{
+    font-size: 1rem;
+    /* background-color: thistle;
+         */
+}
 
-.container {
+/* .container {
    flex: 1;
-}
+} */
 /* navbar parts */
-.navbar{ 
-    background-color: var(--color2) ;
-}
-.nav-link{
-    color: var(--color5) !important;
-    font-weight: 600 !important;
-}
-.container-fluid .navbar-brand{
-    font-size: 2rem;
-    color: var(--color5) !important;
-    font-weight: 600;
-}
 
-/* index.js */
 
-div .ac{
-    text-decoration: none;
-    color: black;
-    
-    /* font-size: small; */
-}
-.listing-card{
-    border: none !important;
-}
-.card-img-top{
-    width: 100% !important;
-    object-fit: cover;
-    height: fit-content;
-}
+/* index.ejs */
 
-.container-fluid{
-    font-size: 1.5rem;
-}
+
+
 
 /* ---------------- LISTINGS CATEGORY PARTS */
 /* .filters{
