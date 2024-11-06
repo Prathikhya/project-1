@@ -26,7 +26,7 @@ app.use(methodoverride("_method"));
 app.engine( "ejs",ejs);
 
 
-// momgodb database connection part
+// momgodb database connection partm 
 main()
     .then(() => {console.log("connect connected");
 })
