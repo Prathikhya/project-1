@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -53,7 +54,7 @@ const sessionOption = {
   secret: process.env.SECRET_CODE,
   resave:  false,
   saveUninitialized: true,
-  Cookie:{
+  cookie:{
     expires: Date.now() + 7  * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 1000, // 7 days in milliseconds
     httpOnly :true,
