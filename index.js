@@ -8,7 +8,7 @@ const ExpressError = require("./utils/Expresserror.js");
 const methodoverride = require("method-override");
 const ejs = require("ejs-mate");
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const { MongoStore } = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require("passport");
 const ListingRouter = require("./routers/listings.js");
@@ -37,15 +37,17 @@ async function main() {
   await mongoose.connect(mongoUrl);
 }
 
-const store  = MongoStore.create({
+const store = MongoStore.create({
   mongoUrl: mongoUrl,
   crypto: {
-    secret: process.env.SECRET_CODE
+    secret: process.env.SECRET_CODE,
   },
   ttl: 7 * 24 * 60 * 60,
 });
 
-store.on("error", () => {
+
+
+store.on("error", function (err)  {
   console.log("error in mongo session store", err)
 });
 
