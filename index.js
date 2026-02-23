@@ -1,3 +1,7 @@
+const dns = require('node:dns');          // <--- ADD THIS
+dns.setDefaultResultOrder('ipv4first');
+require('node:dns').setServers(['8.8.8.8', '8.8.4.4']);
+
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -34,7 +38,12 @@ main()
      .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(mongoUrl);
+  await mongoose.connect(mongoUrl, {
+    serverSelectionTimeoutMS: 5000,
+    family: 4, // Forces IPv4
+  });
+  
+  // console.log("📂 DATABASE NAME:", mongoose.connection.name);
 }
 
 const store = MongoStore.create({
@@ -42,7 +51,7 @@ const store = MongoStore.create({
   crypto: {
     secret: process.env.SECRET_CODE,
   },
-  ttl: 7 * 24 * 60 * 60,
+  ttl: 7 * 24 * 60 * 60 * 1000,
 });
 
 
@@ -64,9 +73,9 @@ const sessionOption = {
 }
 
 // API ROUTERS PARTS
-// app.get("/",(req,res) => {
-//     res.render('/listings', ListingRouter);
-// });
+app.get("/",(req,res) => {
+    res.redirect('/listings', ListingRouter);
+});
 
 app.use(session(sessionOption));
 app.use(flash());

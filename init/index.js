@@ -1,16 +1,26 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 const initdata = require("./basic.js");
 const Listing = require("../models/Listing");
+const mongoUrl = process.env.ATLASDB_URL;
 
-// Connect to database
+
+// // Connect to database 
 main()
     .then(() => {console.log("connect connected");
 })
      .catch(err => console.log(err));
 
+// async function main() {
+//   await mongoose.connect('mongodb://127.0.0.1:27017/Project1');
+// }
+
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/Project1');
+  await mongoose.connect(mongoUrl);
 }
+
+
+
 
 
 const initDt = async () => {
@@ -22,5 +32,6 @@ const initDt = async () => {
     let g = await Listing.insertMany(initdata.data); // add data from basic.js file to index.js
     console.log("data installized");
 }
+
 
 initDt();
