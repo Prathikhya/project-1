@@ -1,6 +1,6 @@
-const dns = require('node:dns');          // <--- ADD THIS
-dns.setDefaultResultOrder('ipv4first');
-require('node:dns').setServers(['8.8.8.8', '8.8.4.4']);
+// const dns = require('node:dns');          // <--- ADD THIS
+// dns.setDefaultResultOrder('ipv4first');
+// require('node:dns').setServers(["1.1.1.1"]);
 
 require("dotenv").config();
 const express = require("express");
