@@ -1,5 +1,5 @@
-const Listing = require("../models/Listing.js");
-const Reviews = require("../models/reviews.js");
+const Listing = require("../models/listingModel.js");
+const Reviews = require("../models/reviewsModel.js");
 
 
 // ADDING A REVIEW

@@ -1,7 +1,7 @@
-const Listing = require("./models/Listing");
-const ExpressError = require("./utils/Expresserror.js");
-const { listingSchema, reviewSchema } = require("./schema.js");
-const reviews = require("./models/reviews");
+const Listing = require("../models/listingModel.js");
+const ExpressError = require("../utils/ExpressError.js");
+const { listingSchema, reviewSchema } = require("../schema.js");
+const reviews = require("../models/reviewsModel.js");
 
 module.exports.isLoggedin = (req, res, next) => {   
     if(!req.isAuthenticated()){

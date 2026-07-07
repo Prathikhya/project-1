@@ -5,10 +5,10 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require("express");
 const router = express.Router();
 const WrapAsync= require("../utils/WrapAsync.js");
-const {isLoggedin, isOwner, validatinlisting} = require("../middleware.js")
-const ListingControl = require("../Controller/ControlListing.js");
+const {isLoggedin, isOwner, validatinlisting} = require("../middleware/middleware.js");
+const ListingControl = require("../controllers/listingController.js");
 const multer  = require('multer')
-const {storage} = require("../Cloudconfi.js");
+const {storage} = require("../config/cloudinary.js");
 const upload = multer({ storage });
 
 

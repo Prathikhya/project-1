@@ -1,6 +1,6 @@
-// const dns = require('node:dns');          // <--- ADD THIS
-// dns.setDefaultResultOrder('ipv4first');
-// require('node:dns').setServers(["1.1.1.1"]);
+const dns = require('node:dns');          // <--- ADD THIS
+dns.setDefaultResultOrder('ipv4first');
+require('node:dns').setServers(["1.1.1.1"]);
 
 require("dotenv").config();
 const express = require("express");
@@ -8,17 +8,17 @@ const app = express();
 const mongoose = require("mongoose");
 const port = 8080;
 const path = require("path");
-const ExpressError = require("./utils/Expresserror.js");
+const ExpressError = require("./utils/ExpressError.js");
 const methodoverride = require("method-override");
 const ejs = require("ejs-mate");
 const session = require('express-session');
 const { MongoStore } = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require("passport");
-const ListingRouter = require("./routers/listings.js");
-const ReviewsRouter = require("./routers/reviews.js");
-const UserRouter = require("./routers/user.js");
-const User = require("./models/user.js");
+const ListingRouter = require("./routers/listingsRouter.js");
+const ReviewsRouter = require("./routers/reviewsRouter.js");
+const UserRouter = require("./routers/userRouter.js");
+const User = require("./models/userModel.js");
 const LocalStrategy = require("passport-local");
 const mongoUrl = process.env.ATLASDB_URL;
 

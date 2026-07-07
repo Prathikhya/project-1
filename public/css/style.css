@@ -1,10 +1,14 @@
 :root{
-    --color1: #fffffaff;
-    --color2:#0d5c63ff;
-    --color3:#44a1a0ff;
-    --color4:#247b7bff;
-    --color5:#022B3A;
+    --color1: #F4F1DE;
+    --color2:#E07A5F;
+    --color3:#3D405B;
+    --color4:#81B29A;
+    --color5:#F2CC8F;
+    --light: #ffffff;
+    --dark: #000000;
 
+
+    
 }
 *{
     margin: 0;
@@ -17,7 +21,7 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-   background-color: var(--color3) !important;
+    background-color: var(--color3) !important;
     
 }
 /* BOILERPLATE PART */

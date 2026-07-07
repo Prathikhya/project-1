@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
 // const User = require("../models/user.js");
-const WrapAsync = require("../utils/WrapAsync.js");
+const WrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
-const { saveRedirectUrl } = require("../middleware.js");
-const UserControl = require("../Controller/ControlUser.js");
+const { saveRedirectUrl } = require("../middleware/middleware.js");
+const UserControl = require("../controllers/userController.js");
 
 router.route("/signin")
 .get((UserControl.GetSign))

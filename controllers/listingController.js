@@ -1,15 +1,15 @@
-const Listing = require("../models/Listing.js");
+const Listing = require("../models/listingModel.js");
 
 // INDEX ROUTER
 module.exports.AllListings = async (req,res) =>{
     let listing = await Listing.find();
 
-    res.render("./mainli/index.ejs",{listing});
+    res.render("./listings/index.ejs",{listing});
 };
 
 // CREATE NEW LISTING(GET)
 module.exports.NewListing = (req,res) =>{
-    res.render("./mainli/new.ejs");
+    res.render("./listings/new.ejs");
 }
 
 // FOR GETTING  SHOW DETAILS OF ALL
@@ -28,7 +28,7 @@ module.exports.AboutListing = async (req,res) =>{
         req.flash("errors" , "No listings found!");
         res.redirect("/listings");
     }
-    res.render("./mainli/details.ejs",{listing});
+    res.render("./listings/details.ejs",{listing});
     
 }
 
@@ -56,7 +56,7 @@ module.exports.EditListing = async (req,res) =>{
     let originalImage = listing.image.url;
     originalImage.replace("/upload", "/upload/h_300,w_250");
 
-    res.render("./mainli/edit.ejs",{listing, originalImage});
+    res.render("./listings/edit.ejs",{listing, originalImage});
 }
 
 // UPDATE THE EXISTING LISTS(PUT)
