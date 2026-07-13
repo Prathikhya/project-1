@@ -66,16 +66,13 @@ const sessionOption = {
   resave:  false,
   saveUninitialized: true,
   cookie:{
-    expires: Date.now() + 7  * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 1000, // 7 days in milliseconds
+    expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
     httpOnly :true,
   }
 }
 
-// API ROUTERS PARTS
-app.get("/",(req,res) => {
-    res.redirect('/listings', ListingRouter);
-});
+
 
 app.use(session(sessionOption));
 app.use(flash());
@@ -91,6 +88,13 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 })
+
+// API ROUTERS PARTS
+app.get("/",(req,res) => {
+  res.render("/listings");
+    // res.redirect('/listings', ListingRouter);
+});
+
 
 // ROUTERS LISTINGS 
 app.use('/listings', ListingRouter);

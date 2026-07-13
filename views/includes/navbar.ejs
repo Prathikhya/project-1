@@ -1,93 +1,64 @@
-<style>
-
-.navbar {
-  background-color: var(--color5);
-  box-shadow: 0 1px 3px rgba(61, 64, 91, 0.08);
-  padding: 14px 0;
-}
-.nav-link{
-    color: var(--color2) !important;
-    font-weight: 600 !important;
-}
-.container-fluid .navbar-brand{
-    font-size: 2rem;
-    color: var(--color5) !important;
-    font-weight: 600;
-}
-  .search-box{
-    border: 3px solid var(--color5);
-    border-radius: 10rem;
-    padding: .3rem 1rem;
-    color: var(--color2);
-    margin-left: 1rem ;
-    background-color: var(--color2);
-
-  }
-  .btn{
-    border-radius: 10rem;
-    background-color: var(--color5);
-    color: var(--color3);
-    margin-left: .5rem;
-    font-size: .7rem;
-  }
-  .searchbtn:hover{
-    background-color: var(--color3);
-    color: var(--color5);
-  }
-  .fa-circle-plus{
-    font-size: 1.5rem;
-  }
-  .right .nav-link{
-    border: 1px solid var(--color5);
-    margin-left: 1rem;
-    border-radius: 15rem;
-    font-size: .7rem;
-    background-color: var(--color5);
-    color: var(--color3) !important;
-  }
-  
-</style>
-
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
 
-      <!-- left side -->
-      <a class="navbar-brand " href="http://localhost:8080/listings">stayfinder</a>
+    <!-- left side -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-house"></i>
+      <span>stayfinder</span>
+    </a>
 
-      <!-- COLLAPSE BUTTON -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <!-- desktop search bar (hidden on mobile/tablet) -->
+    <form class="d-none d-lg-flex align-items-center search-bar-container mx-auto" role="search" action="/listings" method="GET">
+      
+      <button class="btn btn-primary rounded-circle search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
       </button>
 
+      <div class="search-segment">
+        <input class="form-control" id="searchPlace" name="location" type="search" placeholder="Place" aria-label="Place">
+      </div>
+    </form>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Stays</a>
-          <a class="nav-link" aria-current="page" href="http://localhost:8080/listings">Experience</a>
-        </div>
+    <!-- mobile search icon (hidden on desktop) — toggles its own collapse -->
+    <button class="btn btn-primary rounded-circle search-btn-mobile d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-controls="mobileSearch" aria-expanded="false" aria-label="Toggle search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
 
-        <!-- middle side -->
-        <div class="navbar-nav">
-        <form class="d-flex" role="search">
-          <button class="btn searchbtn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-magnifying-glass"></i></button>
-          
-          <div class="collapse" id="collapseExample">
-            <input type="text" class="form-control search-box" placeholder="search">
-          </div>
-        </form>
-        </div>
+    <!-- hamburger — toggles user menu only -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- right side -->
-        <div class="navbar-nav ms-auto  right">
+    <!-- right side: user dropdown -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="dropdown ms-auto">
+        <a class="user-dropdown dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
           <% if(!currentUser) { %>
-            <a class="nav-link" href="/signin">Signin</a>
-            <a class="nav-link" href="/login"> Login </a>
+            <li><a class="dropdown-item" href="/signup">Signup</a></li>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
           <% } %>
           <% if(currentUser) { %>
-            <a class="nav-link" href="http://localhost:8080/listings/new">New</a>
-            <a class="nav-link" href="/logout" > Logout</a>
+            <li><a class="dropdown-item" href="/listings/new">New</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
           <% } %>
-        </div>
+        </ul>
       </div>
+    </div>
+
+  </div>
+
+  <!-- mobile search bar — full width, drops down below navbar when icon is tapped -->
+  <div class="collapse w-100" id="mobileSearch">
+    <form class="d-flex align-items-center search-bar-container mobile-search-form" role="search" action="/listings" method="GET">
+      <div class="search-segment">
+        <input class="form-control" id="searchPlaceMobile" name="location" type="search" placeholder="Place" aria-label="Place">
+      </div>
+      <button class="btn btn-primary rounded-circle search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
   </div>
 </nav>

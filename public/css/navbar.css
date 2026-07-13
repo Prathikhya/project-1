@@ -1,0 +1,74 @@
+body {
+  padding-top: 90px; /* adjust to match your navbar's actual height */
+}
+.navbar {
+  background-color: var(--color5);
+  box-shadow: 0 1px 3px rgba(61, 64, 91, 0.08);
+  padding: 14px 0;
+}
+.nav-link{
+    color: var(--color2) !important;
+    font-weight: 600 !important;
+}
+/* navbar branding */
+.navbar-brand{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    
+}
+.navbar-brand span{
+    padding: .5rem;
+}
+
+/* search bar */
+.search-bar-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 2px 4px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+.search-segment {
+  flex: 1;
+  padding: 4px 7px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.search-segment:last-of-type {
+  border-right: none;
+}
+
+.segment-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+.search-segment .form-control {
+  background-color: #ffffff;   /* clean white instead of lavender */
+  color: #3D405B;
+  border: none;
+}
+
+.search-segment .form-control::placeholder {
+  color: #8a8875;
+}
+.search-segment .form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent; /* optional, if you don't want a border change either */
+}
+
+/* signin and signout */
+.user-dropdown {
+    font-size: 1.5rem;
+    color: black;
+}
+
+  
+  
