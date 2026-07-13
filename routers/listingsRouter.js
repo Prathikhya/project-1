@@ -4,7 +4,7 @@ if(process.env.NODE_ENV !== 'production'){
 // console.log(process.env.);
 const express = require("express");
 const router = express.Router();
-const WrapAsync= require("../utils/WrapAsync.js");
+const wrapAsync= require("../utils/wrapAsync.js");
 const {isLoggedin, isOwner, validatinlisting} = require("../middleware/middleware.js");
 const ListingControl = require("../controllers/listingController.js");
 const multer  = require('multer')
