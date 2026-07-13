@@ -8,7 +8,7 @@ const app = express();
 const mongoose = require("mongoose");
 const port = 8080;
 const path = require("path");
-const ExpressError = require("./utils/ExpressError.js");
+const ExpressError = require("./utils/Expresserror.js");
 const methodoverride = require("method-override");
 const ejs = require("ejs-mate");
 const session = require('express-session');
@@ -91,7 +91,7 @@ app.use((req, res, next) => {
 
 // API ROUTERS PARTS
 app.get("/",(req,res) => {
-  res.render("/listings");
+  res.redirect("/listings");
     // res.redirect('/listings', ListingRouter);
 });
 
