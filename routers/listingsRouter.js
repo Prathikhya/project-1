@@ -14,26 +14,26 @@ const upload = multer({ storage });
 
 // INDEX ROUTER
 router.route("/")
-.get(WrapAsync(ListingControl.AllListings))
+.get(wrapAsync(ListingControl.AllListings))
 .post(isLoggedin,
     upload.single("listing[image][url]"), 
     validatinlisting,
-    WrapAsync(ListingControl.CreatedListing));
+    wrapAsync(ListingControl.CreatedListing));
 
 // CREATE NEW LISTING
 router.get("/new", isLoggedin,(ListingControl.NewListing));
 
 // FOR GETTING  SHOW DETAILS OF ALL
 router.route( "/:id" )
-.get( WrapAsync(ListingControl.AboutListing))
+.get( wrapAsync(ListingControl.AboutListing))
 .put(isLoggedin, 
     isOwner, 
     upload.single("listing[image][url]"),
     validatinlisting,
-    WrapAsync(ListingControl.UpdatedListing))
-.delete( isLoggedin, isOwner, WrapAsync(ListingControl.DestroyListing));
+    wrapAsync(ListingControl.UpdatedListing))
+.delete( isLoggedin, isOwner, wrapAsync(ListingControl.DestroyListing));
 
 // UPDATE THE EXISTING LISTS
-router.get("/:id/edit",isLoggedin, isOwner, WrapAsync(ListingControl.EditListing));
+router.get("/:id/edit",isLoggedin, isOwner, wrapAsync(ListingControl.EditListing));
 
 module.exports = router;

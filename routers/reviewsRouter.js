@@ -13,7 +13,7 @@ router.post("/", isLoggedin, validatereview, (ReviewControl.AddReview));
 // DELETE REVIEW ROUTER WITH LISTINGS
     router.delete("/:reviewsId", isLoggedin,
     isreviewAuthor,
-    WrapAsync(ReviewControl.DestoryReviewAndListing));
+    wrapAsync(ReviewControl.DestoryReviewAndListing));
 
 
     module.exports = router;

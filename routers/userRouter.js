@@ -8,7 +8,7 @@ const UserControl = require("../controllers/userController.js");
 
 router.route("/signin")
 .get((UserControl.GetSign))
-.post( WrapAsync(UserControl.PostSign));
+.post( wrapAsync(UserControl.PostSign));
 
 router.route("/login")
 .get( (UserControl.GetLogin))
