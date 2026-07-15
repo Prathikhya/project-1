@@ -12,6 +12,7 @@ const {storage} = require("../config/cloudinary.js");
 const upload = multer({ storage });
 
 
+
 // INDEX ROUTER
 router.route("/")
 .get(wrapAsync(ListingControl.AllListings))

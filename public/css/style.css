@@ -90,30 +90,3 @@ div .form-control{
 .details form{
     margin: 2rem;
 }
-/* footer part */
-.footer{
-    background:linear-gradient(var(--color4),var(--color2)) !important;
-}
-
-.footer-info-links,.footer-socials{
-    width: 100%;
-}
-.footer-info,.footer-socials {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.footer-socials i{
-    font-size: 1.5rem;
-    padding: 1rem;
-    width: 100%;
-    color: var(--color5);
-}
-.footer-info-links{
-    display: block;
-}
-.foot-links{
-    color: var(--color5);
-}

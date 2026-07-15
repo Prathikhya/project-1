@@ -1,48 +1,57 @@
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg fixed-top modern-navbar">
+  <div class="container-fluid px-4">
 
     <!-- left side -->
-    <a class="navbar-brand" href="/listings">
+    <a class="navbar-brand modern-brand" href="/listings">
       <i class="fa-solid fa-house"></i>
       <span>stayfinder</span>
     </a>
 
-    <!-- desktop search bar (hidden on mobile/tablet) -->
+    <!-- desktop search bar -->
     <form class="d-none d-lg-flex align-items-center search-bar-container mx-auto" role="search" action="/listings" method="GET">
-      
-      <button class="btn btn-primary rounded-circle search-btn" type="submit">
+      <div class="search-segment">
+        <input class="form-control" id="searchPlace" name="location" type="search" placeholder="Where are you going?" aria-label="Place">
+      </div>
+      <button class="btn rounded-circle search-btn" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
-
-      <div class="search-segment">
-        <input class="form-control" id="searchPlace" name="location" type="search" placeholder="Place" aria-label="Place">
-      </div>
     </form>
 
-    <!-- mobile search icon (hidden on desktop) — toggles its own collapse -->
-    <button class="btn btn-primary rounded-circle search-btn-mobile d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-controls="mobileSearch" aria-expanded="false" aria-label="Toggle search">
+    <!-- mobile search icon -->
+    <button class="btn rounded-circle search-btn-mobile d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-controls="mobileSearch" aria-expanded="false" aria-label="Toggle search">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
 
-    <!-- hamburger — toggles user menu only -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <!-- hamburger -->
+    <button class="navbar-toggler modern-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
     </button>
 
     <!-- right side: user dropdown -->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
       <div class="dropdown ms-auto">
         <a class="user-dropdown dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-regular fa-circle-user"></i>
+          <i class="fa-solid fa-bars menu-icon"></i>
+          <span class="avatar-circle">
+            <i class="fa-solid fa-user"></i>
+          </span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+
+        <ul class="dropdown-menu dropdown-menu-end modern-dropdown" aria-labelledby="userMenu">
           <% if(!currentUser) { %>
-            <li><a class="dropdown-item" href="/signup">Signup</a></li>
-            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <li><a class="dropdown-item" href="/signup"><i class="fa-regular fa-user"></i> Sign up</a></li>
+            <li><a class="dropdown-item" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/listings/new"><i class="fa-solid fa-house-circle-check"></i> List your home</a></li>
+            <li><a class="dropdown-item" href="/help"><i class="fa-regular fa-circle-question"></i> Help Center</a></li>
           <% } %>
           <% if(currentUser) { %>
-            <li><a class="dropdown-item" href="/listings/new">New</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li class="dropdown-header">Hi, <%= currentUser.username %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/listings/new"><i class="fa-solid fa-plus"></i> Create new listing</a></li>
+            <li><a class="dropdown-item" href="/profile"><i class="fa-regular fa-user"></i> Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
           <% } %>
         </ul>
       </div>
@@ -50,13 +59,13 @@
 
   </div>
 
-  <!-- mobile search bar — full width, drops down below navbar when icon is tapped -->
+  <!-- mobile search bar -->
   <div class="collapse w-100" id="mobileSearch">
     <form class="d-flex align-items-center search-bar-container mobile-search-form" role="search" action="/listings" method="GET">
       <div class="search-segment">
-        <input class="form-control" id="searchPlaceMobile" name="location" type="search" placeholder="Place" aria-label="Place">
+        <input class="form-control" id="searchPlaceMobile" name="location" type="search" placeholder="Where are you going?" aria-label="Place">
       </div>
-      <button class="btn btn-primary rounded-circle search-btn" type="submit">
+      <button class="btn rounded-circle search-btn" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </form>

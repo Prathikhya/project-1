@@ -1,74 +1,184 @@
-body {
-  padding-top: 90px; /* adjust to match your navbar's actual height */
+.modern-navbar {
+  background: #fff;
+  box-shadow: 0 1px 8px rgba(61, 64, 91, 0.08);
+  padding: 12px 0;
 }
-.navbar {
-  background-color: var(--color5);
-  box-shadow: 0 1px 3px rgba(61, 64, 91, 0.08);
-  padding: 14px 0;
+
+.modern-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #3D405B !important;
 }
-.nav-link{
-    color: var(--color2) !important;
-    font-weight: 600 !important;
+
+.modern-brand i {
+  color: #E07A5F;
+  font-size: 24px;
 }
-/* navbar branding */
-.navbar-brand{
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding-left: 1rem;
-    
+
+.modern-toggler {
+  border: none;
+  color: #3D405B;
+  font-size: 20px;
 }
-.navbar-brand span{
-    padding: .5rem;
+
+.modern-toggler:focus {
+  box-shadow: none;
 }
 
 /* search bar */
 .search-bar-container {
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 50px;
-  padding: 2px 4px;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  border: 1px solid #e5e2d4;
+  border-radius: 999px;
+  padding: 5px 5px 5px 18px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
 
 .search-segment {
   flex: 1;
-  padding: 4px 7px;
-  border-right: 1px solid #e0e0e0;
-}
-
-.search-segment:last-of-type {
-  border-right: none;
-}
-
-.segment-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  color: #222;
 }
 
 .search-segment .form-control {
-  background-color: #ffffff;   /* clean white instead of lavender */
-  color: #3D405B;
   border: none;
+  background: transparent;
+  color: #3D405B;
+  font-size: 13px;
+  padding: 6px 4px;
 }
 
 .search-segment .form-control::placeholder {
   color: #8a8875;
 }
+
 .search-segment .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: transparent; /* optional, if you don't want a border change either */
 }
 
-/* signin and signout */
+.search-btn,
+.search-btn-mobile {
+  background-color: #E07A5F;
+  border: none;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover,
+.search-btn-mobile:hover {
+  background-color: #cb6a51;
+  color: #fff;
+}
+
+.mobile-search-form {
+  max-width: none;
+  margin: 8px 20px;
+}
+
+/* user dropdown trigger */
 .user-dropdown {
-    font-size: 1.5rem;
-    color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e5e2d4;
+  border-radius: 999px;
+  padding: 6px 6px 6px 14px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
 }
 
-  
-  
+.user-dropdown:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.user-dropdown::after {
+  display: none;
+}
+
+.menu-icon {
+  font-size: 16px;
+  color: #3D405B;
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #81B29A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* dropdown panel */
+.modern-dropdown {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(61, 64, 91, 0.15);
+  padding: 8px;
+  min-width: 220px;
+  margin-top: 12px;
+  animation: dropdownFade 0.15s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modern-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3D405B;
+  transition: background 0.15s ease;
+}
+
+.modern-dropdown .dropdown-item i {
+  width: 16px;
+  color: #8a8875;
+}
+
+.modern-dropdown .dropdown-item:hover {
+  background: #F4F1DE;
+  color: #3D405B;
+}
+
+.modern-dropdown .dropdown-item.text-danger:hover {
+  background: #fbe9e5;
+  color: #E07A5F;
+}
+
+.modern-dropdown .dropdown-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3D405B;
+  padding: 8px 14px 2px;
+}
+
+.modern-dropdown .dropdown-divider {
+  margin: 6px 8px;
+  border-color: #eee;
+}
+
+/* since navbar is fixed-top, push body content down */
+body {
+  padding-top: 90px;
+}
