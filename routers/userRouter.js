@@ -6,7 +6,7 @@ const passport = require("passport");
 const { saveRedirectUrl } = require("../middleware/middleware.js");
 const UserControl = require("../controllers/userController.js");
 
-router.route("/signin")
+router.route("/signup")
 .get((UserControl.GetSign))
 .post( wrapAsync(UserControl.PostSign));
 
@@ -21,3 +21,5 @@ passport.authenticate("local", {
 router.get("/logout",(UserControl.Logout));
 
 module.exports = router;
+
+

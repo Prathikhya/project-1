@@ -3,7 +3,7 @@ const User = require("../models/userModel.js");
 
 // SIGN IN PAGE
 module.exports.GetSign = (req,res) => {
-    res.render("users/signin.ejs")
+    res.render("users/signup.ejs")
 };
 
 //SUCCESSFULL SIGNIN & LOGIN
@@ -24,7 +24,7 @@ module.exports.PostSign = async(req,res) => {
     } 
     catch (error) {
         req.flash("errors", error.message); 
-        res.redirect("/signin");   
+        res.redirect("/signup");   
     }  
 };
 

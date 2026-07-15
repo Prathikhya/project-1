@@ -1,31 +1,29 @@
-<% layout("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
 
-<body>
-    <div class="container">
-        <div class="row justify-content-center mb-3">
-            <h2>please loginIn!</h2>
-            <div class="col-md-8">
-                <form class="needs-validation" novalidate action="/login" method="POST">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" required>
-                        <div class="invalid-feedback">Please enter a username.</div>
-                    </div>
-                    <!-- <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                        <div class="invalid-feedback">Please enter an email address.</div>
-                    </div> -->
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
-                        <div class="invalid-feedback">Please enter a password.</div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-success">login</button>
-                </form>
-            </div>
-        </div>
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <i class="fa-solid fa-house auth-icon"></i>
+      <h2>Welcome back</h2>
+      <p>Log in to continue to stayfinder.</p>
     </div>
 
-</body>
+    <form class="needs-validation" novalidate action="/login" method="POST">
+      <div class="mb-3 auth-field">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="username" required>
+        <div class="invalid-feedback">Please enter a username.</div>
+      </div>
+
+      <div class="mb-3 auth-field">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" required>
+        <div class="invalid-feedback">Please enter a password.</div>
+      </div>
+
+      <button type="submit" class="btn auth-btn">Log in</button>
+    </form>
+
+    <p class="auth-switch">New here? <a href="/signup">Create an account</a></p>
+  </div>
+</div>

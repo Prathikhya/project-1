@@ -6,8 +6,6 @@
     --color5:#F2CC8F;
     --light: #ffffff;
     --dark: #000000;
-
-
     
 }
 *{
@@ -25,54 +23,13 @@ body{
     
 }
 /* BOILERPLATE PART */
-.container{
-    font-size: 1rem;
-    /* background-color: thistle;
-         */
+.main-container {
+    min-height: calc(100vh - 220px);
+    padding-bottom: 60px;
 }
 
-/* .container {
-   flex: 1;
-} */
-/* navbar parts */
 
-
-/* index.ejs */
-
-
-
-
-/* ---------------- LISTINGS CATEGORY PARTS */
-/* .filters{
-    display: flex;
-    flex-wrap: wrap;
-}
-.filter{
-    text-align: center;
-    margin-right: 1.5rem;
-    margin-top: 1.5rem;
-    opacity: .8;
-    float: left;
-}
-.filter:hover{
-opacity: 1;
-cursor: pointer;
-}
-.filter p{
-font-weight: 500;
-font-size: .9rem;
-}
-
-.toggles{
-border: 2px solid black;
-border-radius: 3rem;
-margin: 1.3rem;
-padding: .7rem;
-float: right;
-} */
-
-/* new parts */
-
+/* old parts */
 div .form-control{
     background-color: lavender;
 }
@@ -89,4 +46,103 @@ div .form-control{
 }
 .details form{
     margin: 2rem;
+}
+
+
+/* Authunatication pages CSS files */
+
+.auth-page {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(61, 64, 91, 0.1);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-icon {
+  font-size: 28px;
+  color: #E07A5F;
+  margin-bottom: 10px;
+}
+
+.auth-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3D405B;
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  font-size: 13px;
+  color: #8a8875;
+}
+
+.auth-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3D405B;
+  margin-bottom: 6px;
+}
+
+.auth-field .form-control {
+  border: 1px solid #e5e2d4;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #3D405B;
+}
+
+.auth-field .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.15);
+  border-color: #E07A5F;
+}
+
+.auth-btn {
+  width: 100%;
+  background-color: #E07A5F;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: background 0.2s ease;
+}
+
+.auth-btn:hover {
+  background-color: #cb6a51;
+  color: #fff;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+  color: #8a8875;
+  margin-top: 20px;
+}
+
+.auth-switch a {
+  color: #E07A5F;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
 }
