@@ -2,6 +2,7 @@
   background: #fff;
   box-shadow: 0 1px 8px rgba(61, 64, 91, 0.08);
   padding: 12px 0;
+  
 }
 
 .modern-brand {
@@ -38,6 +39,7 @@
   width: 100%;
   box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
+
 
 .search-segment {
   flex: 1;
@@ -80,8 +82,27 @@
 }
 
 .mobile-search-form {
-  max-width: none;
-  margin: 8px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  padding: 8px 16px;
+  margin: 8px;
+}
+
+.mobile-search-form .search-segment {
+  flex: 1;
+  min-width: 0;        /* ← key fix: lets the input shrink instead of overflowing */
+}
+
+.mobile-search-form .search-segment .form-control {
+  width: 100%;
+  min-width: 0;         /* ← also needed directly on the input itself */
+}
+
+.mobile-search-form .search-btn {
+  flex-shrink: 0;        /* keeps the round button from being squeezed/cut off */
+  width: 36px;
+  height: 36px;
 }
 
 /* user dropdown trigger */
@@ -181,4 +202,115 @@
 /* since navbar is fixed-top, push body content down */
 body {
   padding-top: 90px;
+}
+
+
+
+.hamburger-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e2d4;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy);
+}
+
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 1050;
+  flex-direction: column;
+}
+
+.mobile-menu-overlay.show {
+  display: flex;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.mobile-menu-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy);
+}
+
+.mobile-menu-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 8px;
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:active {
+  background: var(--color-cream);
+  color: var(--color-navy);
+}
+
+.mobile-menu-item i {
+  width: 18px;
+  color: var(--color-muted);
+}
+
+.mobile-menu-item.text-danger {
+  color: var(--color-coral);
+}
+
+.mobile-menu-greeting {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  padding: 10px 16px;
+}
+
+.mobile-menu-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 16px;
+}
+
+.mobile-menu-divider {
+  margin: 10px 16px;
+  border-color: #eee;
+}
+
+/* keep the existing dropdown for desktop only */
+@media (min-width: 992px) {
+  .hamburger-btn { display: none; }
+}
+@media (max-width: 991px) {
+  .user-dropdown { display: none; }
 }

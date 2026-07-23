@@ -146,3 +146,164 @@ div .form-control{
 .auth-switch a:hover {
   text-decoration: underline;
 }
+
+
+/* Listins of types of houses */
+
+
+.listings-page {
+  padding-top: 20px;
+  margin: 0px 10px;
+}
+
+/* filter bar */
+.filters-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 12px 25px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  
+}
+
+.filters {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  opacity: 0.65;
+  cursor: pointer;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.filter i {
+  font-size: 20px;
+  color: var(--color-navy);
+}
+
+.filter p {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.filter:hover {
+  opacity: 1;
+}
+
+.filter.active {
+  opacity: 1;
+  border-color: var(--color-navy);
+}
+
+.tax-toggle {
+  flex-shrink: 0;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.tax-toggle .form-check-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-2);
+}
+
+/* listing cards */
+.listing-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.listing-img-wrap {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.listing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.listing-card:hover .listing-img {
+  transform: scale(1.05);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-coral);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.wishlist-btn:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.listing-body {
+  padding-top: 10px;
+}
+
+.listing-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listing-location {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+
+.listing-price {
+  font-size: 13px;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.listing-price span {
+  color: var(--color-muted);
+  font-weight: 400;
+}

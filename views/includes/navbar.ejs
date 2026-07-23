@@ -8,7 +8,7 @@
     </a>
 
     <!-- desktop search bar -->
-    <form class="d-none d-lg-flex align-items-center search-bar-container mx-auto" role="search" action="/listings" method="GET">
+    <form class="d-none d-lg-flex align-items-center search-bar-container  mx-auto" role="search" action="/listings" method="GET">
       <div class="search-segment">
         <input class="form-control" id="searchPlace" name="location" type="search" placeholder="Where are you going?" aria-label="Place">
       </div>
@@ -17,19 +17,20 @@
       </button>
     </form>
 
-    <!-- mobile search icon -->
-    <button class="btn rounded-circle search-btn-mobile d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-controls="mobileSearch" aria-expanded="false" aria-label="Toggle search">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+    <!-- mobile-only right side: search icon + hamburger -->
+    <div class="d-flex align-items-center gap-2 d-lg-none ms-auto">
+      <button class="btn rounded-circle search-btn-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-controls="mobileSearch" aria-expanded="false" aria-label="Toggle search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
 
-    <!-- hamburger -->
-    <button class="navbar-toggler modern-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+      <button class="btn rounded-circle hamburger-btn" type="button" id="mobileMenuBtn" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
 
-    <!-- right side: user dropdown -->
-    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-      <div class="dropdown ms-auto">
+    <!-- desktop-only: user dropdown -->
+    <div class="d-none d-lg-block">
+      <div class="dropdown">
         <a class="user-dropdown dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-bars menu-icon"></i>
           <span class="avatar-circle">
@@ -59,7 +60,7 @@
 
   </div>
 
-  <!-- mobile search bar -->
+  <!-- mobile search bar (icon-triggered) -->
   <div class="collapse w-100" id="mobileSearch">
     <form class="d-flex align-items-center search-bar-container mobile-search-form" role="search" action="/listings" method="GET">
       <div class="search-segment">
@@ -71,3 +72,42 @@
     </form>
   </div>
 </nav>
+
+<!-- mobile fullscreen menu (hamburger-triggered) -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-header">
+    <span>Menu</span>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="mobile-menu-body">
+    <% if(!currentUser) { %>
+      <a href="/signup" class="mobile-menu-item"><i class="fa-regular fa-user"></i> Sign up</a>
+      <a href="/login" class="mobile-menu-item"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    <% } else { %>
+      <div class="mobile-menu-greeting">Hi, <%= currentUser.username %></div>
+      <a href="/listings/new" class="mobile-menu-item"><i class="fa-solid fa-plus"></i> Create new listing</a>
+      <a href="/profile" class="mobile-menu-item"><i class="fa-regular fa-user"></i> Profile</a>
+    <% } %>
+
+    <hr class="mobile-menu-divider">
+    <div class="mobile-menu-label">Explore</div>
+    <a href="/listings?category=trending" class="mobile-menu-item"><i class="fa-solid fa-fire"></i> Trending</a>
+    <a href="/listings?category=views" class="mobile-menu-item"><i class="fa-solid fa-binoculars"></i> Amazing views</a>
+    <a href="/listings?category=beach" class="mobile-menu-item"><i class="fa-solid fa-umbrella-beach"></i> Beach</a>
+    <a href="/listings?category=mountain" class="mobile-menu-item"><i class="fa-solid fa-mountain-city"></i> Mountain house</a>
+    <a href="/listings?category=castle" class="mobile-menu-item"><i class="fa-brands fa-fort-awesome"></i> Castles</a>
+
+    <hr class="mobile-menu-divider">
+    <a href="/listings/new" class="mobile-menu-item"><i class="fa-solid fa-house-circle-check"></i> List your home</a>
+    <a href="/help" class="mobile-menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+    <% if(currentUser) { %>
+      <hr class="mobile-menu-divider">
+      <a href="/logout" class="mobile-menu-item text-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    <% } %>
+  </div>
+</div>
+

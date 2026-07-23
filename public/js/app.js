@@ -18,3 +18,23 @@
         }, false)
       })
   })()
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const overlay = document.getElementById("mobileMenuOverlay");
+  const closeBtn = document.getElementById("mobileMenuClose");
+
+  if (menuBtn && overlay && closeBtn) {
+    menuBtn.addEventListener("click", () => {
+      overlay.classList.add("show");
+      document.body.style.overflow = "hidden"; // prevent background scroll
+    });
+
+    closeBtn.addEventListener("click", () => {
+      overlay.classList.remove("show");
+      document.body.style.overflow = "";
+    });
+  }
+});
